@@ -1,0 +1,89 @@
+﻿@model Lab1.Models._80sMovieModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>_80sMovieModel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genre, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="radio" name="Genre" value="Action" id="rb1" checked/>
+                <label for="rb1">Action</label><br />
+                <input type="radio" name="Genre" value="Adventure" id="rb2" />
+                <label for="rb2">Adventure</label><br />
+                <input type="radio" name="Genre" value="Sci-Fi" id="rb3" />
+                <label for="rb3">Sci-Fi</label><br />
+                <input type="radio" name="Genre" value="Horror" id="rb4" />
+                <label for="rb4">Horror</label><br />
+                <input type="radio" name="Genre" value="Drama" id="rb5" />
+                <label for="rb5">Drama</label><br />
+                <input type="radio" name="Genre" value="Comedy" id="rb6" />
+                <label for="rb6">Comedy</label><br />
+                <input type="radio" name="Genre" value="Fantasy" id="rb7" />
+                <label for="rb7">Fantasy</label><br />
+                <input type="radio" name="Genre" value="Thriller" id="rb8" />
+                <label for="rb8">Thiller</label><br />
+                @Html.ValidationMessageFor(model => model.Genre)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rating, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rating)
+                @Html.ValidationMessageFor(model => model.Rating)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReleaseDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="date" name="ReleaseDate"/>
+                @Html.ValidationMessageFor(model => model.ReleaseDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Seen, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Seen)
+                @Html.ValidationMessageFor(model => model.Seen)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
